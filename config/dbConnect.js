@@ -16,15 +16,10 @@ const dbConnect = async () => {
 
     await client.connect();
 
-    // // Execute a query
-    // const rs = await client.execute("SELECT * FROM system.local");
-    // console.log(`Your cluster returned ${rs.rowLength} row(s)`);
-    // await client.shutdown();
-    
   } catch (e) {
     console.error("data connection error", e);
     throw e; // Re-throw the error for higher-level handling
   }
 };
 
-module.exports = dbConnect;
+module.exports = { dbConnect, client };

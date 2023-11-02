@@ -1,7 +1,8 @@
 
 const express = require('express');
-const dbConnect = require("./config/dbConnect")
+const { dbConnect } = require("./config/dbConnect")
 const { notFound, errorhandler } = require("./middlewares/errorHandler")
+const cors = require('cors')
 // const bodyParser = require("body-parser");
 const app = express();
 require("dotenv").config();
@@ -10,6 +11,7 @@ const foodRoute = require("./routes/foodRouter")
 const morgan = require("morgan");
 
 dbConnect()
+app.use(cors())
 app.use(morgan('dev'))
 app.use(express.json())
 // app.use(bodyParser.urlencoded({extended: false}))
