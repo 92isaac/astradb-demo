@@ -3,6 +3,7 @@ const { v4: uuidv4 } = require("uuid");
 const uuid = uuidv4();
 const fs = require('fs').promises;
 
+
 const getAllData = async (req, res) => {
   try {
     const query = "SELECT * FROM products.food ";
