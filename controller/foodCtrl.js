@@ -1,7 +1,7 @@
 const { client } = require("../config/dbConnect");
 const { v4: uuidv4 } = require("uuid");
 const uuid = uuidv4();
-const fs = require('fs').promises;
+// const fs = require('fs').promises;
 
 
 const getAllData = async (req, res) => {
@@ -65,7 +65,7 @@ const deleteARow = async (req, res) => {
   const { id } = req.params;
   try {
     // DELETE FROM products WHERE id = 12345;
-    const query = `DELETE FROM products.food WHERE  foodId = ${id}`;
+    const query = `DELETE FROM products.food WHERE  foodid = ${id}`;
     client.execute(query, []).then((result) => {
       const rows = result.rows;
       console.log("Rows:", rows);

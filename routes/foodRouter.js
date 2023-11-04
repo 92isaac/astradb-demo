@@ -5,6 +5,7 @@ const multer = require('multer');
 const { getAllData, getSingleRow, addProductRow, deleteARow } = require("../controller/foodCtrl") 
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
 const cloudinary = require('../config/cloudinary');
+const { getDocumentData } = require("../controller/blogCtrl");
 
 const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
@@ -16,6 +17,7 @@ const storage = new CloudinaryStorage({
 const upload = multer({ storage: storage });
 
 
+router.get("/blogs", getDocumentData)
 router.get("/all", getAllData)
 router.get("/:id", getSingleRow)
 router.delete("/delete/:id", deleteARow)
